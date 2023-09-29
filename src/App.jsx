@@ -1,9 +1,14 @@
-import { useState, useRef } from 'react'
+
+import { useState, useRef, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+// import { loadAllTodos } from '../helpers'
+import { getTodos } from './db'
+import { Checkbox } from '@acuity-brands/uiux.facade.checkbox'
 
 function App() {
   const [notes, setNotes] = useState([])
+  const [toDos, setTodos] = useState([])
 
   const inputRef = useRef()
 
@@ -26,19 +31,35 @@ function App() {
     setNotes(newNotes)
   }
 
+  useEffect(() => {
+    const keyListener = e => {
+      if (document.activeElement === inputRef.current && e.keyCode === 13){
+        addButtonClickHandler()
+      }
+    }
+    document.addEventListener('keydown', keyListener)
+
+    return () => {
+      document.removeEventListener('keydown', keyListener)
+    }
+  }, [])
+
+  const handleLoadTodosClick = () => {
+    console.log("laod todos clicked")
+    getTodos()
+  }
+
   return (
     <>
-    <p>Note taker</p>
+    <p>Todos</p>
     <div>
-    <input ref={inputRef}></input>
-    <button onClick={addButtonClickHandler}>Add note</button>
+    <button onClick={handleLoadTodosClick}>Load todos Button</button>
     </div>
     <ul>
-      {notes.map((note, index) => {
+      {toDos.map((note, index) => {
         return (
          <div className='note'>
-        <li key={index}>{note}</li>
-        <button onClick={() => deleteClickHandler(index)}>click me</button>
+        <li key={index}>{note.data}</li>
          </div> 
         )
       })}
