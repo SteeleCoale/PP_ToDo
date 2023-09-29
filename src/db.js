@@ -24,7 +24,6 @@ export const addOrUpdateToDo = async (toDo) => {
     Item: toDo,
   };
   return dynamoClient.put(params).promise();
-// return await dynamoClient.put(params).promise();
 };
 
 export const getToDoById = async (id) => {
