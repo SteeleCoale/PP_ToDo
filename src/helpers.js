@@ -1,27 +1,28 @@
-import { getTodos, addOrUpdateToDo, deleteToDo } from './db'
+/* eslint-disable no-console */
+import { getTodos, addOrUpdateToDo, deleteToDo } from './db';
 
 export const getAllTodos = async (setTodos) => {
   try {
-    const data = await getTodos()
-    const persistedTodos = data.Items
-    setTodos(persistedTodos)
+    const data = await getTodos();
+    const persistedTodos = data.Items;
+    setTodos(persistedTodos);
   } catch (error) {
-    console.log('error in retrieving all todos', error)
+    console.log('error in retrieving all todos', error);
   }
-}
+};
 
 export const addNewTodo = async (newTodo) => {
   try {
-    const response = await addOrUpdateToDo(newTodo)
-  } catch(error) {
-    console.log('error in adding new todo', error)
+    await addOrUpdateToDo(newTodo);
+  } catch (error) {
+    console.log('error in adding new todo', error);
   }
-}
+};
 
 export const removeTodo = async (id) => {
   try {
-    await deleteToDo(id)
+    await deleteToDo(id);
   } catch (error) {
-    console.log('error in deleting todo with id', id, error)
+    console.log('error in deleting todo with id', id, error);
   }
-}
+};
