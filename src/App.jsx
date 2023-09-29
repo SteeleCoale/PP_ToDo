@@ -1,10 +1,32 @@
 
 import { useState, useRef, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
-// import { loadAllTodos } from '../helpers'
 import { getTodos } from './db'
+import { createGlobalStyle } from 'styled-components'
 import { Checkbox } from '@acuity-brands/uiux.facade.checkbox'
+
+/**
+ * Goal for today: have one list that updates on load from DB, and can add Todos to.
+ * publish it using AWS amplify.
+ 
+ * Next, make them todos drag and droppable using dndKit.com.
+ * componentize ToDo list so the page can have multiple lists.
+ */
+
+const GlobalStyle = createGlobalStyle`
+font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+line-height: 1.5;
+font-weight: 400;
+
+color-scheme: light dark;
+color: rgba(255, 255, 255, 0.87);
+background-color: rgb(216, 235, 235);
+
+font-synthesis: none;
+text-rendering: optimizeLegibility;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-text-size-adjust: 100%;
+`
 
 function App() {
   const [notes, setNotes] = useState([])
@@ -51,6 +73,7 @@ function App() {
 
   return (
     <>
+    <GlobalStyle />
     <p>Todos</p>
     <div>
     <button onClick={handleLoadTodosClick}>Load todos Button</button>
