@@ -16,7 +16,6 @@ export const getTodos = async () => {
     TableName: TABLE_NAME,
   };
   const toDos = await dynamoClient.scan(params).promise();
-  console.log('all todos in db.js', toDos);
   return toDos;
 };
 
