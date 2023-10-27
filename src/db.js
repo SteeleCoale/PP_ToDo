@@ -1,4 +1,4 @@
-import AWS from 'aws-sdk';
+import AWS, { DynamoDB } from 'aws-sdk';
 
 AWS.config.update({
   region: import.meta.env.VITE_AWS_DEFAULT_REGION,
@@ -6,7 +6,7 @@ AWS.config.update({
   secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY,
 });
 
-const dynamoClient = new AWS.DynamoDB.DocumentClient();
+const dynamoClient = new DynamoDB.DocumentClient();
 
 const TABLE_NAME = 'ToDosV1';
 
