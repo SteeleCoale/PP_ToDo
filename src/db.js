@@ -1,12 +1,18 @@
-import AWS, { DynamoDB } from 'aws-sdk';
+// import AWS from 'aws-sdk';
+// eslint-disable-next-line
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 
-AWS.config.update({
+// AWS.config.update({
+//   region: import.meta.env.VITE_AWS_DEFAULT_REGION,
+//   accessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY_ID,
+//   secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY,
+// });
+
+const dynamoClient = new DynamoDBClient({
   region: import.meta.env.VITE_AWS_DEFAULT_REGION,
   accessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY_ID,
   secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY,
 });
-
-const dynamoClient = new DynamoDB.DocumentClient();
 
 const TABLE_NAME = 'ToDosV1';
 

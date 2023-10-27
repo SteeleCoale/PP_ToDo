@@ -12,6 +12,7 @@
     "prettier": "prettier"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.437.0",
     "aws-sdk": "^2.1449.0",
     "axios": "^1.5.0",
     "cors": "^2.8.5",
