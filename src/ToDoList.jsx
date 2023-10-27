@@ -12,20 +12,28 @@ const StyledHeading = styled.h1`
 `;
 const StyledUl = styled.ul`
   list-style-type: none;
-  height: 400px;
+  max-height: 600px;
   overflow: scroll;
   padding: 0;
 `;
 const StyledLi = styled.li`
+  box-sizing: border-box;
+  padding: 6px;
   border: 1px solid purple;
+  border-radius: 4px;
   margin: 4px 0 0 4px;
   width: 400px;
   position: relative;
+
+  &:hover {
+    color: white;
+    background-color: purple;
+  }
 `;
 const StyledDeleteButton = styled.button`
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 6px;
+  right: 4px;
   background: none;
   border: none;
   cursor: pointer;
@@ -42,10 +50,13 @@ const StyledInput = styled.input`
   padding: 10px;
   border-radius: 4px;
   outline: none;
-  border: none;
+  border: 2px solid transparent;
   font-size: 14px;
   &::placeholder {
     color: orange;
+  }
+  &:hover {
+    border: 2px solid purple;
   }
 `;
 
