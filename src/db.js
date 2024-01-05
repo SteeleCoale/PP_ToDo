@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 import { DynamoDB } from '@aws-sdk/client-dynamodb';
 // eslint-disable-next-line
-import { DynamoDBDocumentClient, GetCommand, ScanCommand } from '@aws-sdk/lib-dynamodb';
+import { ScanCommand, PutCommand, DeleteCommand } from '@aws-sdk/lib-dynamodb';
 // eslint-disable-next-line
 import { fromCognitoIdentityPool } from '@aws-sdk/credential-providers';
 
@@ -25,12 +25,12 @@ export const getTodos = async () => {
   return response;
 };
 
-export const addOrUpdateToDo = async () => { // param was toDO
-  // const params = {
-  //   TableName: TABLE_NAME,
-  //   Item: toDo,
-  // };
-  // return dynamoClient.put(params).promise();
+export const addOrUpdateToDo = async (toDo) => {
+  const command = new PutCommand({
+    TableName: TABLE_NAME,
+    Item: toDo,
+  });
+  return client.send(command);
 };
 
 export const getToDoById = async () => { // param was id
@@ -44,12 +44,12 @@ export const getToDoById = async () => { // param was id
   // return retrievedToDo;
 };
 
-export const deleteToDo = async () => { // param was id
-  // const params = {
-  //   TableName: TABLE_NAME,
-  //   Key: {
-  //     id,
-  //   },
-  // };
-  // await dynamoClient.delete(params).promise();
+export const deleteToDo = async (id) => {
+  const command = new DeleteCommand({
+    TableName: TABLE_NAME,
+    Key: {
+      id,
+    },
+  });
+  return client.send(command);
 };
