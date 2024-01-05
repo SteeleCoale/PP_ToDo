@@ -117,7 +117,7 @@ function ToDoList() {
         {toDos.map((toDo, index) => (
           <StyledLi key={toDo.id}>
             <p>{toDo.dateCreated}</p>
-            <p>{toDo.data}</p>
+            <p>{toDo.value}</p>
             <StyledDeleteButton
               onClick={() => deleteClickHandler(index, toDo.id)}
             >
