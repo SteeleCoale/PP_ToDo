@@ -6,16 +6,14 @@ import { ScanCommand, PutCommand, DeleteCommand } from '@aws-sdk/lib-dynamodb';
 import { fromCognitoIdentityPool } from '@aws-sdk/credential-providers';
 
 const client = new DynamoDB({
-  region: 'us-west-2',
+  region: import.meta.env.VITE_AWS_DEFAULT_REGION,
   credentials: fromCognitoIdentityPool({
-    clientConfig: { region: 'us-west-2' },
-    identityPoolId: 'us-west-2:5002ba4d-7e14-4c45-9eee-2ae37ec3dc76',
+    clientConfig: { region: import.meta.env.VITE_AWS_DEFAULT_REGION },
+    identityPoolId: import.meta.env.VITE_AWS_IDENTITY_POOL_ID,
   }),
 });
 
 const TABLE_NAME = 'ToDos';
-
-// need to update getTodos, addOrUpdaterTodo, getTodoById deleteTodo,
 
 export const getTodos = async () => {
   const command = new ScanCommand({
