@@ -9,6 +9,7 @@ const TimerWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin-right: 30px;
 `;
 
 const StyledTime = styled.code`
