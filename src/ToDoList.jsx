@@ -5,6 +5,7 @@ import { getAllTodos, addNewTodo, removeTodo } from './helpers';
 
 const ToDoListWrapper = styled.div`
   margin-top: 100px;
+  padding-left: 5rem;
 `;
 const StyledHeading = styled.h1`
   font-weight: 200;

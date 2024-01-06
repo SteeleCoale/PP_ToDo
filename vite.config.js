@@ -11,8 +11,14 @@ export default defineConfig({
       cache: false,
       include: ['./src/**/*.js', './src/**/*.jsx'],
       exclude: [],
+      emitWarning: false,
     }),
   ],
+  server: {
+    hmr: {
+      overlay: false,
+    },
+  },
   define: {
     global: {}, // aws-sdk needs 'global' to be defined https://stackoverflow.com/questions/72114775/vite-global-is-not-defined)
   },

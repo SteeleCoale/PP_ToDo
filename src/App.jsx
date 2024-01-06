@@ -1,5 +1,6 @@
 import GlobalStyle from './globalStyles';
 import ToDoList from './ToDoList';
+import PomodoroTimer from './Pomodoro';
 
 /**
  * Goal for today: have one list that updates on load from DB, and can add Todos to.
@@ -14,6 +15,7 @@ function App() {
     <>
       <GlobalStyle />
       <ToDoList />
+      <PomodoroTimer />
     </>
   );
 }
