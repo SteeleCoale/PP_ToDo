@@ -1,7 +1,7 @@
 import GlobalStyle from './globalStyles';
 import ToDoList from './ToDoList';
 import PomodoroTimer from './Pomodoro';
-
+// import './index.css';
 /**
  * Goal for today: have one list that updates on load from DB, and can add Todos to.
  * publish it using AWS amplify.

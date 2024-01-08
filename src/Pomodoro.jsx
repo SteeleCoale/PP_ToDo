@@ -28,7 +28,7 @@ function PomodoroTimer({ ...omittedProps }) {
 
   const onClickStart = () => {
     if (intervalID === null) { // small fix to prevent starting multiple intervals
-      setIntervalID(setInterval(decrement, 1100)); // 60000
+      setIntervalID(setInterval(decrement, 60000)); // 60000
       setTimerOn(true);
     }
   };
@@ -49,10 +49,10 @@ function PomodoroTimer({ ...omittedProps }) {
       <StyledTime>
         {time}
       </StyledTime>
-      <button type="reset" onClick={timerOn ? onClickStop : onClickStart}>
+      <button className="text-2xl font-bold underline" type="reset" onClick={timerOn ? onClickStop : onClickStart}>
         {timerOn ? 'Pause Timer' : 'Start Timer'}
       </button>
-      <button type="reset" onClick={onResetClick}>
+      <button className="text-2xl font-bold underline" type="reset" onClick={onResetClick}>
         Reset Timer
       </button>
     </TimerWrapper>
